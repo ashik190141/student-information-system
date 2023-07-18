@@ -1,8 +1,6 @@
 
-import { useNavigate } from 'react-router-dom';
 
 const Add = () => {
-    const navigate = useNavigate();
     const handleAdd = event => {
         event.preventDefault();
         const form = event.target;
@@ -31,25 +29,58 @@ const Add = () => {
             },
             body: JSON.stringify(blogInfo)
         })
-            .then(res => res.json)
+            .then(res => res.json())
             .then(data => {
                 console.log(data);
                 if (data.insertedId > 0) {
                     alert("Data added Successfully");
+                    form.reset();
                 }
-                navigate('/');
         })
     }
     return (
-        <div>
-            <h1>Add Student Information</h1>
+        <div className='max-w-7xl mx-auto mt-20'>
+            <h1 className='text-center font-bold text-3xl mb-20'>Add Student Information</h1>
             <form onSubmit={handleAdd}>
-                <input type="text" name="roll" placeholder="Roll" /><br />
-                <input type="text" name="name" placeholder="Name" /><br />
-                <input type="text" name="session" placeholder="Session" /><br />
-                <input type="text" name="current" placeholder="Current Year" /><br />
-                <input type="text" name="semester" placeholder="Semester" /><br />
-                <input type="submit" value="Add Student"/><br />
+                <div className="form-control w-full mb-3">
+                    <label>
+                        <input type="text" name="name" placeholder="Name"
+                    className="input border-olive-lightgreen w-full bg-slate-100"/>
+                    </label>
+                </div>
+
+                <div className="form-control w-full mb-3">
+                    <label>
+                        <input type="text" name="roll" placeholder="Roll"
+                    className="input border-olive-lightgreen w-full bg-slate-100" /><br />
+                    </label>
+                </div>
+
+                <div className="form-control w-full mb-3">
+                    <label>
+                        <input type="text" name="session" placeholder="Session"
+                        className="input border-olive-lightgreen w-full bg-slate-100"/>
+                    </label>
+                </div>
+                
+                <div className="form-control w-full mb-3">
+                    <label>
+                        <input type="text" name="current" placeholder="Current Year"
+                    className="input border-olive-lightgreen w-full bg-slate-100"/>
+                    </label>
+                </div>
+
+                <div className="form-control w-full mb-3">
+                    <label>
+                        <input type="text" name="semester" placeholder="Semester"
+                    className="input border-olive-lightgreen w-full bg-slate-100"/>
+                    </label>
+                </div>
+
+                <div className="form-control w-full mb-3 flex flex-col items-center justify-center">
+                    <input type="submit" value="Add Student"
+                    className="mt-20 btn bg-lightorange border-none  text-white btn-primary w-1/3"/>
+                </div>
             </form>
         </div>
     );

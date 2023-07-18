@@ -32,23 +32,25 @@ const Users = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Roll</th>
-                            <th>Session</th>
-                            <th>Current Year</th>
-                            <th>Semester</th>
+                            <th className='text-xl font-bold text-center'>Name</th>
+                            <th className='text-xl font-bold text-center'>Roll</th>
+                            <th className='text-xl font-bold text-center'>Session</th>
+                            <th className='text-xl font-bold text-center'>Current Year</th>
+                            <th className='text-xl font-bold text-center'>Semester</th>
+                            <th className='text-xl font-bold text-center'>Delete</th>
+                            <th className='text-xl font-bold text-center'>Update</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             users.map((user) => (
                                 <tr key={user._id}>
-                                    <th>{user.name}</th>
-                                    <th>{user.roll}</th>
-                                    <th>{user.session}</th>
-                                    <td>{user.current}</td>
-                                    <td>{user.semester}</td>
-                                    <th>
+                                    <th className='text-xl text-center'>{user.name}</th>
+                                    <th className='text-xl text-center'>{user.roll}</th>
+                                    <th className='text-xl text-center'>{user.session}</th>
+                                    <td className='text-xl text-center'>{user.current}</td>
+                                    <td className='text-xl text-center'>{user.semester}</td>
+                                    <th className='flex flex-col items-center justify-center'>
                                         <button onClick={() => handleDelete(user._id)} className="btn btn-warning">Delete</button>
                                     </th>
                                     <th>
@@ -62,7 +64,7 @@ const Users = () => {
                     </tbody>
             </table>
             </div>
-            <div>
+            <div className='flex flex-col items-center justify-center'>
                 <Link to="/add"><button className="btn btn-primary">Add Student</button></Link>
             </div>
         </div>

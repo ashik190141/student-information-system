@@ -27,20 +27,54 @@ const Update = () => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
                     alert('Updated successfully');
+                    form.reset();
                 }
         })
     }
 
     return (
-        <div>
-            <h3>User information of {loadedData.name}</h3>
+        <div className='max-w-7xl mx-auto mt-20'>
+            <h3 className='text-center font-bold text-3xl mb-20'>Update information of {loadedData.name}</h3>
             <form onSubmit={handleUpdate}>
-                <input type="text" name="roll" placeholder="Roll" defaultValue={loadedData?.roll}/><br />
-                <input type="text" name="name" placeholder="Name" defaultValue={loadedData?.name}/><br />
-                <input type="text" name="session" placeholder="Session" defaultValue={loadedData?.session}/><br />
-                <input type="text" name="current" placeholder="Current Year" defaultValue={loadedData?.current}/><br />
-                <input type="text" name="semester" placeholder="Semester" defaultValue={loadedData?.semester}/><br />
-                <input type="submit" value="UPDATE" />
+                <div className="form-control w-full mb-3">
+                    <label>
+                        <input type="text" name="name" placeholder="Name" defaultValue={loadedData?.name}
+                    className="input border-olive-lightgreen w-full bg-slate-100"/>
+                    </label>
+                </div>
+
+                <div className="form-control w-full mb-3">
+                    <label>
+                        <input type="text" name="roll" placeholder="Roll" defaultValue={loadedData?.roll}
+                    className="input border-olive-lightgreen w-full bg-slate-100" /><br />
+                    </label>
+                </div>
+
+                <div className="form-control w-full mb-3">
+                    <label>
+                        <input type="text" name="session" placeholder="Session" defaultValue={loadedData?.session}
+                        className="input border-olive-lightgreen w-full bg-slate-100"/>
+                    </label>
+                </div>
+                
+                <div className="form-control w-full mb-3">
+                    <label>
+                        <input type="text" name="current" placeholder="Current Year" defaultValue={loadedData?.current}
+                    className="input border-olive-lightgreen w-full bg-slate-100"/>
+                    </label>
+                </div>
+
+                <div className="form-control w-full mb-3">
+                    <label>
+                        <input type="text" name="semester" placeholder="Semester" defaultValue={loadedData?.semester}
+                    className="input border-olive-lightgreen w-full bg-slate-100"/>
+                    </label>
+                </div>
+
+                <div className="form-control w-full mb-3 flex flex-col items-center justify-center">
+                    <input type="submit" value="Update"
+                    className="mt-20 btn bg-lightorange border-none  text-white btn-primary w-1/3"/>
+                </div>
             </form>
         </div>
     );
