@@ -1,16 +1,14 @@
 // // import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 
 const Users = () => {
-    const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/users')
-            .then(res => res.json())
-            .then(data => setUsers(data));
-    }, [])
+    const {data: users = [], refetch} = useQuery(['users'], async () => {
+        const res = await fetch('http://localhost:5000/users')
+        return res.json();
+    })
+
     
     const handleDelete = id => {
         fetch(`http://localhost:5000/users/${id}`, {
@@ -22,6 +20,7 @@ const Users = () => {
                 if (data.deletedCount > 0) {
                     alert("Delete Successful");
                 }
+                refetch();
             })
     }
 
