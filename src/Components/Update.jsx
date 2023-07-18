@@ -1,7 +1,9 @@
 // import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../hooks/useTitle';
 
 const Update = () => {
+    useTitle("Update");
     const loadedData = useLoaderData();
 
     const handleUpdate = event => {

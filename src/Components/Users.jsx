@@ -1,8 +1,10 @@
 // // import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import useTitle from '../hooks/useTitle';
 
 const Users = () => {
+    useTitle('Home');
 
     const {data: users = [], refetch} = useQuery(['users'], async () => {
         const res = await fetch('http://localhost:5000/users')
