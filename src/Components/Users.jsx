@@ -46,19 +46,21 @@ const Users = () => {
                         {
                             users.map((user) => (
                                 <tr key={user._id}>
-                                    <th className='text-xl text-center'>{user.name}</th>
-                                    <th className='text-xl text-center'>{user.roll}</th>
-                                    <th className='text-xl text-center'>{user.session}</th>
+                                    <td className='text-xl text-center'>{user.name}</td>
+                                    <td className='text-xl text-center'>{user.roll}</td>
+                                    <td className='text-xl text-center'>{user.session}</td>
                                     <td className='text-xl text-center'>{user.current}</td>
                                     <td className='text-xl text-center'>{user.semester}</td>
-                                    <th className='flex flex-col items-center justify-center'>
+                                    <td className='flex flex-col items-center justify-center'>
                                         <button onClick={() => handleDelete(user._id)} className="btn btn-warning">Delete</button>
-                                    </th>
-                                    <th>
-                                        <Link to={`/update/${user._id}`}>
-                                            <button className="btn btn-success">Update</button>
-                                        </Link>
-                                    </th>
+                                    </td>
+                                    <td className='text-center'>
+                                        <div>
+                                            <Link to={`/update/${user._id}`}>
+                                                <button className="btn btn-success">Update</button>
+                                            </Link>
+                                        </div>
+                                    </td>
                                 </tr>
                             ))
                         }
