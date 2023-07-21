@@ -45,12 +45,13 @@ const Users = () => {
     }
 
     return (
-        <div>
+        <div className='mt-10'>
             <div>
                 <table className="table border-1">
                     {/* head */}
                     <thead>
                         <tr>
+                            <th className='text-xl font-bold text-center'>Serial No</th>
                             <th className='text-xl font-bold text-center'>Name</th>
                             <th className='text-xl font-bold text-center'>Roll</th>
                             <th className='text-xl font-bold text-center'>Session</th>
@@ -62,8 +63,9 @@ const Users = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((user) => (
+                            users.map((user,index) => (
                                 <tr key={user._id}>
+                                    <td className='text-xl text-center'>{index+1}</td>
                                     <td className='text-xl text-center'>{user.name}</td>
                                     <td className='text-xl text-center'>{user.roll}</td>
                                     <td className='text-xl text-center'>{user.session}</td>
@@ -85,7 +87,7 @@ const Users = () => {
                     </tbody>
             </table>
             </div>
-            <div className='flex flex-col items-center justify-center'>
+            <div className='flex flex-col items-center justify-center mt-10'>
                 <Link to="/add"><button className="btn btn-primary">Add Student</button></Link>
             </div>
         </div>

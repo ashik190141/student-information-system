@@ -40,7 +40,7 @@ const Add = () => {
                         icon: 'success',
                         confirmButtonColor: '#3085d6',
                         cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes'
+                        confirmButtonText: 'OK'
                     }).then(result => {
                         if (result.isConfirmed) {
                             navigate('/');
