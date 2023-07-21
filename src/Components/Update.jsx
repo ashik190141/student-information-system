@@ -1,10 +1,13 @@
 // import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import useTitle from '../hooks/useTitle';
+import { useNavigate } from 'react-router-dom';
 
 const Update = () => {
     useTitle("Update");
     const loadedData = useLoaderData();
+    const navigate = useNavigate();
 
     const handleUpdate = event => {
         event.preventDefault();
@@ -28,8 +31,17 @@ const Update = () => {
             .then(data => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
-                    alert('Updated successfully');
-                    form.reset();
+                    Swal.fire({
+                        title: `Update Information of ${name} successfully`,
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes'
+                    }).then(result => {
+                        if (result.isConfirmed) {
+                            navigate('/');
+                        }
+                    })
                 }
         })
     }
@@ -47,7 +59,7 @@ const Update = () => {
 
                 <div className="form-control w-full mb-3">
                     <label>
-                        <input type="text" name="roll" placeholder="Roll" defaultValue={loadedData?.roll}
+                        <input type="number" name="roll" placeholder="Roll" defaultValue={loadedData?.roll}
                     className="input border-olive-lightgreen w-full bg-slate-100" /><br />
                     </label>
                 </div>
@@ -61,14 +73,14 @@ const Update = () => {
                 
                 <div className="form-control w-full mb-3">
                     <label>
-                        <input type="text" name="current" placeholder="Current Year" defaultValue={loadedData?.current}
+                        <input type="number" name="current" placeholder="Current Year" defaultValue={loadedData?.current}
                     className="input border-olive-lightgreen w-full bg-slate-100"/>
                     </label>
                 </div>
 
                 <div className="form-control w-full mb-3">
                     <label>
-                        <input type="text" name="semester" placeholder="Semester" defaultValue={loadedData?.semester}
+                        <input type="number" name="semester" placeholder="Semester" defaultValue={loadedData?.semester}
                     className="input border-olive-lightgreen w-full bg-slate-100"/>
                     </label>
                 </div>

@@ -1,6 +1,9 @@
 
+import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom';
 
 const Add = () => {
+    const navigate = useNavigate();
     const handleAdd = event => {
         event.preventDefault();
         const form = event.target;
@@ -12,7 +15,7 @@ const Add = () => {
         const semester = form.semester.value;
         
 
-        const blogInfo = {
+        const student_info = {
             name,
             roll,
             session,
@@ -20,21 +23,29 @@ const Add = () => {
             semester
         };
 
-        console.log(blogInfo);
 
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(blogInfo)
+            body: JSON.stringify(student_info)
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
-                    alert("Data added Successfully");
-                    form.reset();
+                    Swal.fire({
+                        title: `Added Information of ${name} successfully`,
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes'
+                    }).then(result => {
+                        if (result.isConfirmed) {
+                            navigate('/');
+                        }
+                    })
                 }
         })
     }
@@ -51,7 +62,7 @@ const Add = () => {
 
                 <div className="form-control w-full mb-3">
                     <label>
-                        <input type="text" name="roll" placeholder="Roll"
+                        <input type="number" name="roll" placeholder="Roll"
                     className="input border-olive-lightgreen w-full bg-slate-100" /><br />
                     </label>
                 </div>
@@ -65,14 +76,14 @@ const Add = () => {
                 
                 <div className="form-control w-full mb-3">
                     <label>
-                        <input type="text" name="current" placeholder="Current Year"
+                        <input type="number" name="current" placeholder="Current Year"
                     className="input border-olive-lightgreen w-full bg-slate-100"/>
                     </label>
                 </div>
 
                 <div className="form-control w-full mb-3">
                     <label>
-                        <input type="text" name="semester" placeholder="Semester"
+                        <input type="number" name="semester" placeholder="Semester"
                     className="input border-olive-lightgreen w-full bg-slate-100"/>
                     </label>
                 </div>
