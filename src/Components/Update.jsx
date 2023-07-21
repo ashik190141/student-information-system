@@ -32,7 +32,7 @@ const Update = () => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
-                        title: `Update Information of ${name} successfully`,
+                        title: `Successfully Updated Information of ${name}`,
                         icon: 'success',
                         confirmButtonColor: '#3085d6',
                         cancelButtonColor: '#d33',

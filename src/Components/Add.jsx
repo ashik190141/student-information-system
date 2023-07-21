@@ -36,7 +36,7 @@ const Add = () => {
                 console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
-                        title: `Added Information of ${name} successfully`,
+                        title: `Successfully Added Information of ${name}`,
                         icon: 'success',
                         confirmButtonColor: '#3085d6',
                         cancelButtonColor: '#d33',
