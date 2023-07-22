@@ -55,35 +55,35 @@ const Add = () => {
             <form onSubmit={handleAdd}>
                 <div className="form-control w-full mb-3">
                     <label>
-                        <input type="text" name="name" placeholder="Name"
+                        <input required type="text" name="name" placeholder="Name"
                     className="input border-olive-lightgreen w-full bg-slate-100"/>
                     </label>
                 </div>
 
                 <div className="form-control w-full mb-3">
                     <label>
-                        <input type="number" name="roll" placeholder="Roll"
+                        <input required type="number" name="roll" placeholder="Roll"
                     className="input border-olive-lightgreen w-full bg-slate-100" /><br />
                     </label>
                 </div>
 
                 <div className="form-control w-full mb-3">
                     <label>
-                        <input type="text" name="session" placeholder="Session"
+                        <input required type="text" name="session" placeholder="Session"
                         className="input border-olive-lightgreen w-full bg-slate-100"/>
                     </label>
                 </div>
                 
                 <div className="form-control w-full mb-3">
                     <label>
-                        <input type="number" name="current" placeholder="Current Year"
+                        <input required type="number" name="current" placeholder="Current Year"
                     className="input border-olive-lightgreen w-full bg-slate-100"/>
                     </label>
                 </div>
 
                 <div className="form-control w-full mb-3">
                     <label>
-                        <input type="number" name="semester" placeholder="Semester"
+                        <input required type="number" name="semester" placeholder="Semester"
                     className="input border-olive-lightgreen w-full bg-slate-100"/>
                     </label>
                 </div>
