@@ -47,6 +47,19 @@ const Add = () => {
                         }
                     })
                 }
+                else if (data.message) {
+                    Swal.fire({
+                        title: `Roll Number ${roll} Already Exist`,
+                        icon: 'warning',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'OK'
+                    }).then(result => {
+                        if (result.isConfirmed) {
+                            navigate('/');
+                        }
+                    })
+                }
         })
     }
     return (
